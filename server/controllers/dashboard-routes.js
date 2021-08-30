@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const { Post, User, Track } = require('../models');
 const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
@@ -13,14 +13,15 @@ router.get('/', withAuth, (req, res) => {
                 'content',
                 'created_at'
             ],
-            include: [{
-                    model: Comment,
-                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                    include: {
-                        model: User,
-                        attributes: ['username']
-                    }
-                },
+            include: [
+//                    {
+//                    model: Track,
+//                    attributes: ['id', 'track_text', 'post_id', 'user_id', 'created_at'],
+//                    include: {
+//                              model: User,
+//                              attributes: ['username']
+//                    }
+//                },
                 {
                     model: User,
                     attributes: ['username']
@@ -51,8 +52,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
                     attributes: ['username']
                 },
                 {
-                    model: Comment,
-                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+//                    model: Track,
+//                    attributes: ['id', 'track_text', 'post_id', 'user_id', 'created_at'],
                     include: {
                         model: User,
                         attributes: ['username']
@@ -77,7 +78,5 @@ router.get('/edit/:id', withAuth, (req, res) => {
 router.get('/new', (req, res) => {
     res.render('new-post');
 });
-
-
 
 module.exports = router;

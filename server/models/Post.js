@@ -12,13 +12,13 @@ Post.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: false
       },
-      title: {
+      'EMP ID': {
         type: DataTypes.STRING,
         allowNull: false
       },
-      content: {
+      NAME: {
         type: DataTypes.TEXT,
         allowNull: false
       },
