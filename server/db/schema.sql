@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS IRDs_db.accdb;
+
+CREATE DATABASE IRDs_db.accdb;
