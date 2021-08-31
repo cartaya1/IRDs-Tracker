@@ -1,31 +1,25 @@
-const routes = require('./controllers');
-const helpers = require('./utils/helpers');
-const express = require('express');
-const sequelize = require('./config/connection');
-const path = require('path');
-const session = require('express-session');
-const app = express();
-const PORT = process.env.PORT || 3000;
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const sess = {
-    secret: 'Super secret secret',
-    cookie: { maxAge: 36000 },
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize
+const express = require('express')
+const app = express ()
+const mongoose = require('mongoose');
+const techModel = require('./models/Techs');
+
+///Database Conection
+mongoose.connect("mongodb://localhost:27017/IRD-db?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
+{useNewUrlParser: true}
+);
+
+app.get("/data", async (req, res) => {
+    techModel.find ({}, (err, result) => {
+        if (err){
+            res.send(err)
+        } else {
+            res.send(result)
+        }
     })
-};
-//app.use(routes);
-app.use(session(sess));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+})
 
-app.get('/', (req,res) => {
-    res.send('Hello IRDs, I am Luis')});
 
-sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log("Now listening", {PORT}));
-});
 
+app.listen (3001, ()=>{
+    console.log('test: you are conected')
+})

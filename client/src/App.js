@@ -1,13 +1,31 @@
 import React from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Reports from './pages/Reports';
+import Products from './pages/Products';
+import Team from './pages/Team';
+import Menssages from './pages/Menssages';
+import Support from './pages/Support';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       <h1>IRDs Tracker</h1>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path='/' exact component={Home} />
+          <Route path='/reports' component={Reports} />
+          <Route path='/products' component={Products} />
+          <Route path='/team' component={Team} />
+          <Route path='/messages' component={Menssages} />
+          <Route path='/support' component={Support} />
+        </Switch>
+      </Router>
+    </>
   );
 }
+
 export default App;
