@@ -47,7 +47,7 @@ DATA: {
     required: true,
 },
 DATE: {
-    type: String,
+    type: Date,
     required: true,
 },
 RANDOM: {
