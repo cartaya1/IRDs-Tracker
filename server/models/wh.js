@@ -31,7 +31,7 @@ RMA: {
     required: true,
 },
 QTY: {
-    type: INT,
+    type: String,
     required: true,
 },
 TECH: {

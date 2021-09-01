@@ -85,6 +85,6 @@ PHOTO: {
 
 })
 
-const techModel = mongoose.model('techmodel', techSchema)
+const techModel = mongoose.model('techs', techSchema)
 
 module.exports = techModel
