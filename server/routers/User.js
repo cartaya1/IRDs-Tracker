@@ -1,24 +1,36 @@
-const express = require('express')
-const app = express ()
-const mongoose = require('mongoose');
-const User = require('./models/user');
+const express = require("express");
+const logger = require("morgan");
+const mongoose = require("mongoose");
 
-///Database Conection
-mongoose.connect("mongodb://localhost:27017/IRD_db?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
-{useNewUrlParser: true}
-);
+const PORT = process.env.PORT || 3000;
 
-app.get("/user", async (req, res) => {
-    console.log("looking for Data")
-    User.find ({}, (err, result) => {
-        if (err){
-            res.send(err)
-        } else {
-            res.send(result)
-        }
+const User = require("./models/user.js");
+
+const app = express();
+
+app.use(logger("dev"));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(express.static("public"));
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/IRD_db", { useNewUrlParser: true });
+
+app.post("/submit", ({body}, res) => {
+  const user = new User(body);
+  user.setFullName();
+  user.lastUpdatedDate();
+
+  User.create(user)
+    .then(dbUser => {
+      res.json(dbUser);
     })
-})
+    .catch(err => {
+      res.json(err);
+    });
+});
 
-app.listen (3001, ()=>{
-    console.log('test: you are conected')
-})
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}!`);
+});

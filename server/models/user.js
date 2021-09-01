@@ -1,6 +1,19 @@
 const mongoose = require("mongoose");
+//const Schema = mongoose.Schema;
 
-const userSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
+
+  firstName: {
+    type: String,
+    trim: true,
+    required: "First Name is Required"
+  },
+
+  lastName: {
+    type: String,
+    trim: true,
+    required: "Last Name is Required"
+  },
 
   username: {
     type: String,
@@ -12,7 +25,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: "Password is Required",
-    validate: [({ length }) => length >= 8, "Password should be longer or equal to 8 Characters."]
+    validate: [({ length }) => length >= 6, "Password should be longer."]
   },
 
   email: {
@@ -24,9 +37,25 @@ const userSchema = new mongoose.Schema({
   userCreated: {
     type: Date,
     default: Date.now
-  }
-})
+  },
 
-const User = mongoose.model("User", userSchema, 'user')
+  lastUpdated: Date,
 
-module.exports = User
+  fullName: String
+});
+
+UserSchema.methods.setFullName = function() {
+  this.fullName = `${this.firstName} ${this.lastName}`;
+
+  return this.fullName;
+};
+
+UserSchema.methods.lastUpdatedDate = function() {
+  this.lastUpdated = Date.now();
+
+  return this.lastUpdated;
+};
+
+const User = mongoose.model("User", UserSchema, 'user');
+
+module.exports = User;

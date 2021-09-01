@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express ()
 const mongoose = require('mongoose');
-const Daily = require('./models/daily');
+const Tech = require('./models/techs');
 
 ///Database Conection
 mongoose.connect("mongodb://localhost:27017/IRD_db?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
