@@ -18,25 +18,25 @@ export const SidebarData = [
   },
   {
     title: 'Warehouse Stock',
-    path: '/products',
+    path: '/warehouse',
     icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
   },
   {
     title: 'Techs List',
-    path: '/team',
+    path: '/techs',
     icon: <IoIcons.IoMdPeople />,
     cName: 'nav-text'
   },
   {
     title: 'Tech Request',
-    path: '/messages',
+    path: '/requests',
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text'
   },
   {
     title: 'Support',
-    path: '/support',
+    path: '/about',
     icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text'
   }
