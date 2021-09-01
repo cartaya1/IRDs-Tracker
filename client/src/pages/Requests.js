@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Menssages() {
+function Requests() {
   return (
-    <div className='menssages'>
+    <div className='requests'>
       <h1>Techs Requests. @</h1>
       <p>
         Request Page
@@ -11,4 +11,4 @@ function Menssages() {
   );
 }
 
-export default Menssages;
+export default Requests;

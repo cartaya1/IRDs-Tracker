@@ -4,10 +4,10 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Reports from './pages/Reports';
-import Products from './pages/Products';
-import Team from './pages/Team';
-import Menssages from './pages/Menssages';
-import Support from './pages/Support';
+import Warehouse from './pages/Warehouse';
+import Techs from './pages/Techs';
+import Requests from './pages/Requests';
+import About from './pages/About';
 
 
 function App() {
@@ -18,10 +18,10 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/reports' component={Reports} />
-          <Route path='/products' component={Products} />
-          <Route path='/team' component={Team} />
-          <Route path='/messages' component={Menssages} />
-          <Route path='/support' component={Support} />
+          <Route path='/warehouse' component={Warehouse} />
+          <Route path='/techs' component={Techs} />
+          <Route path='/requests' component={Requests} />
+          <Route path='/about' component={About} />
         </Switch>
       </Router>
     </>

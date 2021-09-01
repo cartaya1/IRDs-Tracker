@@ -8,16 +8,9 @@ mongoose.connect("mongodb://localhost:27017/IRD_db?readPreference=primary&appnam
 {useNewUrlParser: true}
 );
 
-app.get("/techs", async (req, res) => {
+app.get("/", async (req, res) => {
     console.log("looking for Data")
-    Daily.find ({}, (err, result) => {
-        if (err){
-            res.send(err)
-        } else {
-            res.send(result)
-        }
     })
-})
 
 app.listen (3001, ()=>{
     console.log('test: you are conected')

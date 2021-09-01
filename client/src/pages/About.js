@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Support() {
+function About() {
   return (
-    <div className='support'>
+    <div className='about'>
       <h1>Support. @</h1>
       <p>
         About and Email Page
@@ -12,4 +12,4 @@ function Support() {
   );
 }
 
-export default Support;
+export default About;

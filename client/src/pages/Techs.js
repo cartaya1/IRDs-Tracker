@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Team() {
+function Techs() {
   return (
-    <div className='team'>
+    <div className='techs'>
       <h1>Techs List. @</h1>
       <p>
         Techs Info. Page
@@ -11,4 +11,4 @@ function Team() {
   );
 }
 
-export default Team;
+export default Techs;

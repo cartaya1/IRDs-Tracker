@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Products() {
+function Warehouse() {
   return (
-    <div className='products'>
+    <div className='warehouse'>
       <h1>Warehouse Stock @</h1>
       <p>
         Items Cards
@@ -11,4 +11,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default Warehouse;
