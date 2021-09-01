@@ -37,6 +37,6 @@ AGE: {
 
 })
 
-const Ohr = mongoose.model('Ohr', ohrSchema, 'ohr')
+const OHR = mongoose.model('OHR', ohrSchema, 'ohr')
 
-module.exports = Ohr
+module.exports = OHR

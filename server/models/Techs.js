@@ -85,6 +85,6 @@ const techSchema = new mongoose.Schema({
 
 })
 
-const techModel = mongoose.model('techs', techSchema)
+const Tech = mongoose.model('Tech', techSchema, 'techs')
 
-module.exports = techModel
+module.exports = Tech
