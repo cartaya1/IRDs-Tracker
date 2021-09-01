@@ -57,6 +57,6 @@ const whSchema = new mongoose.Schema({
 
 })
 
-const whModel = mongoose.model('wh', whSchema)
+const Wh = mongoose.model('Wh', whSchema, 'wh')
 
-module.exports = whModel
+module.exports = Wh

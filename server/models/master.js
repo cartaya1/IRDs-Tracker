@@ -31,7 +31,7 @@ RMA: {
     required: true,
 },
 QTY: {
-    type: INT,
+    type: String,
     required: true,
 },
 TECH: {
@@ -57,6 +57,6 @@ RANDOM: {
 
 })
 
-const masterModel = mongoose.model('master', masterSchema)
+const Master = mongoose.model('Master', masterSchema, 'master')
 
-module.exports = masterModel
+module.exports = Master

@@ -57,6 +57,6 @@ RANDOM: {
 
 })
 
-const dailyModel = mongoose.model('daily', dailySchema)
+const Daily = mongoose.model('Daily', dailySchema, 'daily')
 
-module.exports = dailyModel
+module.exports = Daily
