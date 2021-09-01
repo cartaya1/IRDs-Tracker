@@ -31,7 +31,7 @@ RMA: {
     required: true,
 },
 QTY: {
-    type: INT,
+    type: String,
     required: true,
 },
 TECH: {
@@ -47,7 +47,7 @@ DATA: {
     required: true,
 },
 DATE: {
-    type: Date,
+    type: String,
     required: true,
 },
 RANDOM: {
@@ -59,4 +59,4 @@ RANDOM: {
 
 const dailyModel = mongoose.model('daily', dailySchema)
 
-module.exports = dailyhModel
+module.exports = dailyModel
