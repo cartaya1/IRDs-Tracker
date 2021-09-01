@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const techModel = require('./models/Techs');
 
 ///Database Conection
-mongoose.connect("mongodb://localhost:27017/IRD-db?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
+mongoose.connect("mongodb://localhost:27017/IRD_db?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
 {useNewUrlParser: true}
 );
 
-app.get("/data", async (req, res) => {
+app.get("/info", async (req, res) => {
     techModel.find ({}, (err, result) => {
         if (err){
             res.send(err)
@@ -17,8 +17,6 @@ app.get("/data", async (req, res) => {
         }
     })
 })
-
-
 
 app.listen (3001, ()=>{
     console.log('test: you are conected')
