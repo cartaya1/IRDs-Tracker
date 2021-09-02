@@ -24,8 +24,3 @@ db.once('open', () => {
   });
   
 });
-
-//Database Conection
-//mongoose.connect("mongodb://localhost:27017/IRD_db?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
-//{useNewUrlParser: true}
-//);
