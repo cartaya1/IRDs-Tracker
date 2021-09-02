@@ -4,7 +4,7 @@ const techSchema = new mongoose.Schema({
 
     SVR: {
         type: String,
-        required: true,
+        required: false,
     },
     TEAM: {
         type: String,
@@ -21,6 +21,7 @@ const techSchema = new mongoose.Schema({
     TECH: {
         type: String,
         required: true,
+        unique: true        
     },
     LAST: {
         type: String,
@@ -32,7 +33,7 @@ const techSchema = new mongoose.Schema({
     },
     SIZE: {
         type: String,
-        required: true,
+        required: false,
     },
     PHONE: {
         type: String,
@@ -40,11 +41,11 @@ const techSchema = new mongoose.Schema({
     },
     HANDHELD: {
         type: String,
-        required: true,
+        required: false,
     },
     METER: {
         type: String,
-        required: true,
+        required: false,
     },
     DAY_OFF: {
         type: String,
@@ -72,15 +73,16 @@ const techSchema = new mongoose.Schema({
     },
     DIV: {
         type: String,
-        required: true,
+        required: false,
     },
     ATTUID: {
         type: String,
-        required: true,
+        required: false,
+        unique: true
     },
     PHOTO: {
         type: String,
-        required: true,
+        required: false,
     },
 
 })

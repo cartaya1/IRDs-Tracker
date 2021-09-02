@@ -18,6 +18,7 @@ const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     trim: true,
+    unique: true,
     required: "Username is Required"
   },
 
@@ -25,7 +26,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: "Password is Required",
-    validate: [({ length }) => length >= 6, "Password should be longer."]
+    validate: [({ length }) => length >= 8, "Password should be longer of 8 Characters."]
   },
 
   email: {

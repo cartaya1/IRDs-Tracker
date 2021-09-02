@@ -1,15 +1,14 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
-//const { typeDefs, resolvers } = require('./server/schemas');
+const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-//const server = new ApolloServer({
-//  typeDefs,
-//  resolvers
-//});
-
+const server = new ApolloServer({
+  typeDefs,
+  resolvers
+});
 
 server.applyMiddleware({ app });
 
@@ -22,7 +21,6 @@ db.once('open', () => {
     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
   });
 });
-
 
 //Database Conection
 //mongoose.connect("mongodb://localhost:27017/IRD_db?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",

@@ -25,13 +25,14 @@ MODEL: {
 SERIAL: {
     type: String,
     required: true,
+    unique: true
 },
 CARD: {
     type: String,
     required: true,
 },
 AGE: {
-    type: INT,
+    type: Number,
     required: true,
 },
 

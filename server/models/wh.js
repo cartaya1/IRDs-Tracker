@@ -24,23 +24,23 @@ const whSchema = new mongoose.Schema({
     },
     MATERIAL: {
         type: String,
-        required: true,
+        required: false,
     },
     RMA: {
         type: String,
-        required: true,
+        required: false,
     },
     QTY: {
         type: String,
-        required: true,
+        required: false,
     },
     TECH: {
         type: String,
-        required: true,
+        required: false,
     },
     PHONE: {
         type: String,
-        required: true,
+        required: false,
     },
     DATA: {
         type: String,

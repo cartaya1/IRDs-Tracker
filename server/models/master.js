@@ -53,6 +53,7 @@ DATE: {
 RANDOM: {
     type: String,
     required: true,
+    unique: true
 },
 
 })
