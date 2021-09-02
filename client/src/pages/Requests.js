@@ -1,14 +1,14 @@
 import React from 'react';
 
-function Requests() {
+function Request() {
   return (
     <div className='requests'>
-      <h1>Techs Requests. @</h1>
+      <h1>Techs Request. @</h1>
       <p>
-        Request Page
+        Techs Request. Page
       </p>
     </div>
   );
 }
 
-export default Requests;
+export default Request;

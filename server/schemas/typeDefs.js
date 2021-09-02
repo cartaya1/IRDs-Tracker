@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
-  # Define which fields are accessible from the Class model
+  # Define which fields are accessible from the Tech model
 
 type Tech {
   _id: ID
@@ -42,6 +42,7 @@ type Daily{
   PHONE: String
   DATA: String
   DATE: String
+  RANDOM: String
 }
 
 type WH{ 
@@ -58,6 +59,7 @@ type WH{
   PHONE: String
   DATA: String
   DATE: String
+  RANDOM: String
   }
 
 type Master{ 
@@ -74,6 +76,7 @@ type Master{
   PHONE: String
   DATA: String
   DATE: String
+  RANDOM: String
   }
   
 type OHR{ 
