@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.4.10",
+    "@react-navigation/routers": "^6.0.1",
     "apollo-server": "^3.3.0",
     "apollo-server-core": "^3.3.0",
     "apollo-server-express": "^3.3.0",
