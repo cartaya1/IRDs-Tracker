@@ -20,34 +20,34 @@ const resolvers = {
       return await daily.find({}).populate('TECH');
     }
   },
-  Mutation: {
-    addTech: async (parent, { NAME, TECH, SUP }) => {
-      return await Tech.create({ NAME, TECH, SUP });
-    },
-    updateMaster: async (parent, { id, LOCATION, TYPE, SERIAL, CARD, MODEL, MATERIAL, RMA, QTY, TECH, PHONE, DATA, DATE, RANDOM }) => {
+  //Mutation: {
+  //  addTech: async (parent, { NAME, TECH, SUP }) => {
+  //    return await Tech.create({ NAME, TECH, SUP });
+  //  },
+  //  updateMaster: async (parent, { id, LOCATION, TYPE, SERIAL, CARD, MODEL, MATERIAL, RMA, QTY, TECH, PHONE, DATA, DATE, RANDOM }) => {
       // Find and update the matching class using the destructured args
-      return await daily.findOneAndUpdate(
+  //    return await daily.findOneAndUpdate(
 
-        { _id: ID },
-        { LOCATION },
-        { TYPE },
-        { SERIAL },
-        { CARD },
-        { MODEL },
-        { MATERIAL },
-        { RMA },
-        { QTY },
-        { TECH },
-        { PHONE },
-        { DATA },
-        { DATE },
-        { RANDOM },
+  //      { _id: ID },
+  //      { LOCATION },
+  //      { TYPE },
+  //      { SERIAL },
+  //      { CARD },
+  //      { MODEL },
+  //      { MATERIAL },
+  //     { RMA },
+  //      { QTY },
+  //      { TECH },
+  //     { PHONE },
+  //      { DATA },
+  //      { DATE },
+  //      { RANDOM },
         // Return the newly updated object instead of the original
-        { new: true }
-      );
-    }
+  //      { new: true }
+  //    );
+  //  }
   }
 
-};
+//};
 
 module.exports = resolvers;
