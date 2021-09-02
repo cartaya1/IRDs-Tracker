@@ -4,20 +4,20 @@ const { daily, techs, master, ohr, wh } = require('../models');
 const resolvers = {
   Query: {
     techs: async () => {
-      // Get and return all documents from the classes collection
-      return await techs.find({}).populate('techs');
+      // Get and return all documents from the techs collection
+      return await techs.find({}).populate('TECH');
     },
     master: async () => {
-      return await master.find({}).populate('techs');
+      return await master.find({}).populate('TYPE');
     },
     ohr: async () => {
-      return await ohr.find({}).populate('techs');
+      return await ohr.find({}).populate('TECH');
     },
     wh: async () => {
-      return await wh.find({});
+      return await wh.find({}).populate('MODEL');
     },
     daily: async () => {
-      return await daily.find({}).populate('techs');
+      return await daily.find({}).populate('TECH');
     },
   }
 };
