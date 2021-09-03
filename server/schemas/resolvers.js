@@ -1,53 +1,72 @@
+const { AuthenticationError } = require('apollo-server-express');
 const { daily, techs, master, ohr, wh } = require('../models');
+const { signToken } = require('../utils/auth');
 
 // Create the functions that fulfill the queries defined in `typeDefs.js`
 const resolvers = {
   Query: {    
     techs: async () => {
       // Get and return all documents from the techs collection
-      return await tech.find({}).populate('techs');
+      return await Tech.find({}).populate('techs');
     },
     master: async () => {
-      return await master.find({}).populate('TYPE');
+      return await Master.find({}).populate('TYPE');
     },
     ohr: async () => {
-      return await ohr.find({}).populate('TECH');
+      return await OHR.find({}).populate('TECH');
     },
     wh: async () => {
-      return await wh.find({}).populate('MODEL');
+      return await WH.find({}).populate('MODEL');
     },
     daily: async () => {
-      return await daily.find({}).populate('TECH');
+      return await Daily.find({}).populate('TECH');
+    },
+
+// USER Login
+  user: async (parent, args, context) => {
+    if (context.user) {
+      const user = await User.findById(context.user._id).populate({
+        path: 'profiles',
+        populate: 'role'
+      });
+      return user;
     }
-  },
-  //Mutation: {
-  //  addTech: async (parent, { NAME, TECH, SUP }) => {
-  //    return await Tech.create({ NAME, TECH, SUP });
-  //  },
-  //  updateMaster: async (parent, { id, LOCATION, TYPE, SERIAL, CARD, MODEL, MATERIAL, RMA, QTY, TECH, PHONE, DATA, DATE, RANDOM }) => {
-      // Find and update the matching class using the destructured args
-  //    return await daily.findOneAndUpdate(
-
-  //      { _id: ID },
-  //      { LOCATION },
-  //      { TYPE },
-  //      { SERIAL },
-  //      { CARD },
-  //      { MODEL },
-  //      { MATERIAL },
-  //      { RMA },
-  //      { QTY },
-  //      { TECH },
-  //      { PHONE },
-  //      { DATA },
-  //      { DATE },
-  //      { RANDOM },
-        // Return the newly updated object instead of the original
-  //      { new: true }
-  //    );
-  //  }
+    throw new AuthenticationError('Not logged in');
   }
+},
 
-//};
+  Mutation: {
+    addUser: async (parent, {firstName, lastName, username, email, password}) => {
+      const user = await User.create({firstName, lastName, username, email, password});
+      const token = signToken(user);
+
+      return { token, user };
+    },
+    updateUser: async (parent, args, context) => {
+      if (context.user) {
+        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(user);
+
+      return { token, user };
+    }
+  }
+};
 
 module.exports = resolvers;

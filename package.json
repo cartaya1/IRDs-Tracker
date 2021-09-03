@@ -22,6 +22,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "graphql": "^15.5.2",
+    "graphql-playground-react": "^1.7.27",
     "graphql-tools": "^8.2.0",
     "react-icons": "^4.2.0"
   }

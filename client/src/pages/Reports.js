@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Report.css';
+import '../util/css/Report.css';
 
 function Reports({TECH, image, TEAM, SUP, available}) {
     return (
