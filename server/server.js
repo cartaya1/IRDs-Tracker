@@ -1,4 +1,6 @@
 const express = require('express');
+const cors =require('cors');
+
 const { ApolloServer } = require('apollo-server-express');
 
 const { typeDefs, resolvers } = require('./schemas');
@@ -15,7 +17,7 @@ const server = new ApolloServer({
 server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(express.json(), cors());
 
 db.once('open', () => {
   app.listen(PORT, () => {
