@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Axios from "axios";
+import { response } from "express";
 
 function Techs() {
-  return (
-    <div className='techs'>
+  const [TECH, setTECH] = useState();
+  const [NAME, setName] = useState();
+
+useEffect(() => {
+  Axios.get ('http://localhost:3001/Techs').ten((response)=>{
+    console.log(response);
+  });
+}, []);
+    
+      
+return (
+  <div className='techs'>     
       <h1>Techs List. @</h1>
       <p>
         Techs Info. Page
