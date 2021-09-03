@@ -3,24 +3,23 @@ import Axios from "axios";
 import { response } from "express";
 
 function Techs() {
-  const [TECH, setTECH] = useState();
-  const [NAME, setName] = useState();
+  const [TECH, setTECH] = useState('');
+  const [NAME, setName] = useState('');
 
 useEffect(() => {
-  Axios.get ('http://localhost:3001/Techs').ten((response)=>{
-    console.log(response);
+  Axios.get ('http://localhost:3001/Techs').then((response)=>{
+    console.log(response.data);
   });
 }, []);
     
-      
 return (
-  <div className='techs'>     
-      <h1>Techs List. @</h1>
-      <p>
-        Techs Info. Page
-      </p>
-    </div>
-  );
+  <div className='techs'>
+    <h1>Techs List. @</h1>
+    <p>
+      Techs Report. Page
+    </p>
+  </div>
+);
 }
 
 export default Techs;
