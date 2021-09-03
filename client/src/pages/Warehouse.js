@@ -1,13 +1,12 @@
 import React from 'react';
+import SubNavWh from '../components/SubNavWh';
+import '../util/css/SubNav.css'
 
 function Warehouse() {
   return (
-    <div className='warehouse'>
-      <h1>Warehouse Stock @</h1>
-      <p>
-        Items Cards
-      </p>
-    </div>
+        <div className="warehouse_subnav">
+                <SubNavWh />
+        </div>
   );
 }
 

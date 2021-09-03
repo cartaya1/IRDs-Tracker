@@ -1,5 +1,7 @@
 const express = require('express');
 const cors =require('cors');
+
+const controllers = require("./controllers");
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');

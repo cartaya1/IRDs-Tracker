@@ -6,6 +6,7 @@
 
 .navbar {
   background-color: var(--Back);
+  color: var(--letter);
   height: 80px;
   display: flex;
   align-items: flex-start;
@@ -14,16 +15,17 @@
 
 .menu-bars {
   margin-left: 2rem;
-  font-size: 2rem;
+  font-size: 5rem;
   background: none;
 }
 
 .nav-menu {
   background-color: var(--Back);
+  color: var(--letter);
   width: 250px;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   position: fixed;
   top: 0;
   left: -100%;

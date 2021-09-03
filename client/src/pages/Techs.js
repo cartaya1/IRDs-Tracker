@@ -1,16 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import Axios from "axios";
-import { response } from "express";
+import React from 'react';
+import '../util/css/Techs.css';
 
-function Techs() {
-return (
-  <div className='techs'>
-    <h1>Techs List. @</h1>
-    <p>
-      Techs Report. Page
-    </p>
-  </div>
-);
+function Techs({TECH, PHOTO, TEAM, SUP, available}) {
+    return (
+
+        <div className="Report">
+            <p><em>{available} List of Tech by Team.</em></p>
+
+            <div className="image">
+                <img src={PHOTO} alt={TEAM}/>
+            </div>
+
+            <div className="TECH">
+            {TECH}</div>
+
+            <div className="details">
+
+                <div className="Supervisor">
+                    <p className="p1">Supervisor:</p>
+                    <p className="p2"><strong>{SUP}</strong></p>
+                </div>
+
+
+                <button className="addToCart">
+                    <p className="p1">Team Name to look</p>                       
+                </button>
+
+            </div>
+        </div>
+    )
 }
 
 export default Techs;

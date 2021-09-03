@@ -21,3 +21,8 @@
   justify-content: center;
   font-size: 30px;
 }
+
+.home
+{
+  background-image: "./util/img/homejpeg";
+}
