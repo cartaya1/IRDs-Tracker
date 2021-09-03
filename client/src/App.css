@@ -13,6 +13,7 @@
 .techs,
 .requests,
 .about
+.login
  {
   display: flex;
   height: 90vh;
